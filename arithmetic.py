@@ -24,6 +24,7 @@ while c != 'q':
         except ValueError:
             print(f'{answer} is not a number.')
     
+    ## Check if the answer is correct
     if result == answer:
         print('Success!')
     else:

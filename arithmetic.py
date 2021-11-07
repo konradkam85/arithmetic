@@ -1,8 +1,43 @@
+#######################################################
+## arithmetic.py
+## 
+## Arithmetic operations trainer.
+#######################################################
+
 import random
 
 def addition(x,y):
+    '''Returns the sume of two numbers: x and y
+    
+    Parameters:
+    x (int): first number
+    y (int): second number
+
+    Returns:
+    int: sum of x and y
+    '''
     print(f'{x} + {y} = ')
     return x + y
+
+def isint(s):
+    '''Checks if string can be converted to int and returns int
+
+    Parameters:
+    s (str): string to be checked
+
+    Returns:
+    int(s)
+    '''
+
+    try:
+        s=int(s)
+        return s
+    except ValueError:
+        try:
+            s = float(s)
+            print(f'{s} is float, not integer.')
+        except ValueError:
+            print(f'{s} is not a number.')
 
 c = None    # chart in while loop condition
 
@@ -14,20 +49,12 @@ while c != 'q':
     result = addition(x,y)
     answer = input()
 
-    ## Test if the input is an integer
-    try:
-        answer=int(answer)
-    except ValueError:
-        try:
-            answer = float(answer)
-            print('This is a float. Should be an integer.') 
-        except ValueError:
-            print(f'{answer} is not a number.')
+    answer = isint(answer)
     
     ## Check if the answer is correct
     if result == answer:
-        print('Success!')
+        print('You are correct!')
     else:
-        print('Try again...')
+        print('You are wrong...')
 
     c = input('Press ENTER for next or q to quit: ')
